@@ -1,26 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Header from './components/Header';
+import Movies from './containers/Movies';
+import Details from   './containers/Details';
+import Footer from './components/Footer';
+
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
+
+//redux
+import {Provider} from 'react-redux';
+import store from './store';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Provider store={store}>
+      <Router>
+      <React.Fragment>
+        <div className="container">
+          <Header />
+          <main>
+            <Switch>
+              <Route exact path="/" component={Movies} />
+              <Route exact path="/Movies/details/:id" component={Details} />
+              <Redirect to='/' />
+            </Switch>
+          </main>
+        </div>
+        <Footer />
+      </React.Fragment>
+      </Router>
+      </Provider>
     );
   }
 }

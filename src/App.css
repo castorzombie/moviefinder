@@ -1,32 +1,239 @@
-.App {
+/** BLOCK **/
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Krub', sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+  margin:0;
+ }
+
+img {
+  max-width: 100%;
+}
+
+form {
+  display: contents;
+}
+
+.container{
+  background: white;
+  min-height: calc(100vh - 50px);
+  max-width: auto;
+  margin: 0;
+}
+
+header {
+  background:    linear-gradient(
+    rgba(46, 143, 255, .85), 
+    rgba(46, 143, 255, .85) 
+  ), url(./img/pexbg4.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: center -200px;
+  height:400px;
+  color:#fff;
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 10px;
+}  
+
+main {
+  margin: 0 0.1rem;
+}
+
+footer {
+  min-height: 50px;
+  background: rgba(7, 56, 68, 0.85);
+  color: #fff;
+  text-align: center;
+  padding:10px
+}
+
+/** ELEMENTS HEAD **/
+.titlehead {
+  flex: 1 0 100%;
+  text-align: center;
+  padding: 0;
+}
+
+.logo {
+  width: 80px
+}
+.movieitemform {
+  margin: 10px;
+}
+
+/** ELEMENTS MAIN **/
+
+.listReady {
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.listEmpty {
+  text-align: center;
+  color: #ddd;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.articles {
+  margin: 0;
+}
+.article-flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-flow: column nowrap;
+  margin-bottom:1rem;
+  background: #ddd
+}
+.article-flex img {
+  height: 200px;
+}
+.movie-flex {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #fff
+}
+.movie-flex img {
+  height: auto;
+  margin: 0 0 1rem 0;
+}
+
+@media screen and (min-width: 480px) {
+  main {
+    margin: 0 .2rem;
+  }
+  .articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .article-flex {
+    flex: 0 1 calc(50% - 1rem);
+  }
+  .movie-flex {
+    flex-flow: row;
+  }
+  .movie-flex img {
+    margin: 1rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  main {
+    margin: 0 1rem;
+  }
+  .article-flex {
+    flex: 0 1 calc(33% - 1rem);
+  }
+}
+
+.article-content {
+  position: relative;
+  height: calc(15em - 30px);
+  text-align:center;
+  padding: 1rem;
+  flex-flow: column nowrap;
+}
+.article-content span {
+  color: #db008d;
+}
+.limited-text {
+  overflow: hidden;
+  height: 84px;
+  text-align: left
+}
+.article-content h3 {
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  line-height: 1.1rem;
+}
+.article-btn {
+  height: auto;
   color: white;
+  background-color: rgba(46, 143, 255, 1);
+  padding: .5rem;
+  display: inline-block;
+  border:0;
+  border-radius: 21px;
+  cursor:pointer;
+  transition: all 0.3s ease-in-out 0s;
+  outline: none;
+  margin: 10px 5rem;
+  text-align: center;
+  text-decoration: none;
+}
+.article-btn:hover {
+  background-color: rgba(46, 143, 255, .80);
 }
 
-.App-link {
-  color: #61dafb;
+/** MODIFIERS **/
+.inputron {
+  height: 58px;
+  max-width: 395px;
+  font-size: 2.6vh;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 20px 40px 0px;
+  color: rgb(129, 132, 140);
+  font-weight: 300;
+  letter-spacing: 0.16px;
+  text-transform: none;
+  box-sizing: border-box;
+  padding: 0px 32px;
+  border-style: none;
+  border-radius: 56px;
+  outline: none;
+  text-decoration: none;
+  margin: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.buttron {
+  height: 58px;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  position: relative;
+  width: auto;
+  height: fit-content;
+  vertical-align: middle;
+  color: rgb(255, 255, 255);
+  font-weight: 800;
+  font-size: 2.6vh;
+  line-height: 0;
+  overflow-wrap: break-word;
+  padding: 28px 40px; 
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 20px 40px 0px;
+  background-color: rgb(255, 51, 102);
+  text-decoration: none;
+  margin: initial;
+  border-radius: 56px;
+  transition: all 0.3s ease-in-out 0s;
+  outline: none;
+}
+.buttron:hover {
+  background-color: white;
+  color: rgb(46, 143, 255, 1)
+}
+
+@media screen and (min-width: 768px) {
+  .buttron {
+    width: fit-content;
   }
-  to {
-    transform: rotate(360deg);
-  }
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+.purp-color {
+  color: #db008d;
 }
