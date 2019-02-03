@@ -14,7 +14,8 @@ import { showPopular, showMovies } from '../actions/moviesActions'
    } 
    
    componentDidMount() {
-    this.props.showPopular();
+    const search = localStorage.getItem("search");
+    search !== '' ? this.props.showMovies(search) : this.props.showPopular();
   }
 
   render() {

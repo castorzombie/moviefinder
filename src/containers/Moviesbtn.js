@@ -18,23 +18,26 @@ export class Moviesbtn extends Component {
     })
   }
 
-  getMovieList = (e) => {
+  getSearch = (e) => {
     e.preventDefault();
     const itemSearch = this.state.movieSearch;
-    if (window.location.pathname !== "/") {
-      return window.location.href = '/'
-     }else {
+    localStorage.setItem("search", itemSearch);
+    window.location.pathname !== "/" ?
+       window.location.href = '/' : 
+       this.getMovieList(itemSearch);
+  }
+
+  getMovieList = (itemSearch) => {
     itemSearch !== '' ?  
       this.props.showMovies(itemSearch):
       this.props.showPopular();
-    }
   }
 
   render() {
     return (
       
       <React.Fragment>
-        <form onSubmit={this.getMovieList}>
+        <form onSubmit={this.getSearch}>
           <div className="movieitemform">
             <input onChange={this.movieSearch}  className="inputron"></input>
           </div>

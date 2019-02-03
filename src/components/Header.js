@@ -11,7 +11,6 @@ class Header extends Component {
     if (window.location.pathname !== "/") {
       return window.location.href = '/'
      }
-    this.props.showPopular()
   }
 
   render() {
