@@ -8,7 +8,8 @@ export class Moviesbtn extends Component {
   constructor() {
     super();
     this.state = {
-      movieSearch: ''
+      movieSearch: '',
+      defaultText: 'Type your search'
     }
   }
 
@@ -39,7 +40,7 @@ export class Moviesbtn extends Component {
       <React.Fragment>
         <form onSubmit={this.getSearch}>
           <div className="movieitemform">
-            <input onChange={this.movieSearch}  className="inputron"></input>
+            <input onChange={this.movieSearch} placeholder={this.state.defaultText} className="inputron"></input>
           </div>
           <div className="movieitemform">
             <button type="submit" value="Submit" className="buttron">Check Movie List</button>
