@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
-import { showMovies } from '../actions/moviesActions' 
+import { showPopular, showMovies } from '../actions/moviesActions' 
 
 export class Moviesbtn extends Component {
   
@@ -21,15 +21,12 @@ export class Moviesbtn extends Component {
   getMovieList = (e) => {
     e.preventDefault();
     const itemSearch = this.state.movieSearch;
-    if(itemSearch !== '' ) { 
-      this.props.showMovies(this.state.movieSearch);
-    }
-    this.renderRedirect();
-  }
-
-  renderRedirect = () => {
     if (window.location.pathname !== "/") {
-     return window.location.href = '/'
+      return window.location.href = '/'
+     }else {
+    itemSearch !== '' ?  
+      this.props.showMovies(itemSearch):
+      this.props.showPopular();
     }
   }
 
@@ -55,6 +52,6 @@ export class Moviesbtn extends Component {
 const mapStateToProps = state => ({
   movies: state.movies.movies
 });
-export default connect(mapStateToProps, {showMovies})(Moviesbtn);
+export default connect(mapStateToProps, {showPopular, showMovies})(Moviesbtn);
 
 
