@@ -18,9 +18,9 @@ import { showPopular, showMovies } from '../actions/moviesActions'
   }
 
   render() {
+    
     const {results} = this.props.movies;
-    console.log(this.props)
-    console.log(results);
+
     return (
 
         <React.Fragment>
