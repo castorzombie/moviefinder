@@ -47,9 +47,9 @@ import {showDetails} from '../actions/moviesActions'
             <img src={dropImg} alt={title} title={title} />
             <div className="movie-content">
                 <h3>{title}</h3>
-                <p>Release date: <span class="purp-color">{release_date}</span></p>
-                <p>Overview: <span class="purp-color">{overview}</span></p>
-                <p>Popularity: <span class="purp-color">{popularity}</span></p>
+                <p>Release date: <span className="purp-color">{release_date}</span></p>
+                <p>Overview: <span className="purp-color">{overview}</span></p>
+                <p>Popularity: <span className="purp-color">{popularity}</span></p>
             </div>
         </article>
       </div>

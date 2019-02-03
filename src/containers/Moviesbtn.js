@@ -20,19 +20,16 @@ export class Moviesbtn extends Component {
 
   getMovieList = (e) => {
     e.preventDefault();
-
     const itemSearch = this.state.movieSearch;
-    if(itemSearch !== undefined) { 
+    if(itemSearch !== '' ) { 
       this.props.showMovies(this.state.movieSearch);
     }
     this.renderRedirect();
   }
 
   renderRedirect = () => {
-    console.log( window.location.href)
-    console.log(window.location.pathname === "/")
     if (window.location.pathname !== "/") {
-     return  window.location.href = '/'
+     return window.location.href = '/'
     }
   }
 

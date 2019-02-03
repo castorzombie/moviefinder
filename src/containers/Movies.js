@@ -2,20 +2,29 @@ import React, { Component } from 'react'
 import Movie from '../containers/Movie';
 
 import { connect } from 'react-redux';
-import { showMovies } from '../actions/moviesActions' 
+import { showPopular, showMovies } from '../actions/moviesActions' 
 
  class Movies extends Component {
+    
+   constructor() {
+       super();
+       this.state = {
+           appTitle: 'Most Popular Movies'
+       }
+   } 
+   
+   componentDidMount() {
+    this.props.showPopular();
+  }
 
   render() {
     const {results} = this.props.movies;
+    console.log(this.props)
     console.log(results);
     return (
 
         <React.Fragment>
-            { 
-            results !== undefined ? <h2 className ="listReady">Movie List</h2> 
-            : <h2 className ="listEmpty">List is empty</h2>
-            }
+            <h2 className ="listEmpty">{this.state.appTitle}</h2>
             <div className="articles">
                 {
                 results !== undefined ?
@@ -33,4 +42,4 @@ import { showMovies } from '../actions/moviesActions'
 const mapStateToProps = state => ({
   movies: state.movies.movies
 })
-export default connect(mapStateToProps, {showMovies})(Movies);
+export default connect(mapStateToProps, {showPopular, showMovies})(Movies);
